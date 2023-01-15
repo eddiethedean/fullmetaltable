@@ -23,7 +23,11 @@ class TinySqlTable(Table):
         self.sqltable.primary_keys = list(column_names)
 
     def record_changes(self) -> dict[str, list[Record]]:
-        return self.sqltable.record_changes(self)
+        return self.sqltable.record_changes(self.records)
+
+    @property
+    def records(self) -> list[Record]:
+       return [dict(row) for _, row in self.iterrows()]
 
     def insert_record(self, record: Record) -> None:
         self.insert_records([record])
@@ -35,7 +39,7 @@ class TinySqlTable(Table):
         self.sqltable.pull()
 
     def push(self) -> None:
-        self.sqltable.push(self)
+        self.sqltable.push(self.records)
         self.pull()
 
 

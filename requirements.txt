@@ -1,2 +1,2 @@
 tinytable
-tabulize
+tabulize>=0.1.0
