@@ -2,8 +2,10 @@ from typing import Any, Sequence
 from tinytable import Table
 import tabulize
 from tinytim.rows import row_dicts_to_data
-from tinytim.insert import insert_rows
+
 from sqlalchemy.engine import Engine
+
+from tinyalchemize.records import table_to_records, insert_record, insert_records
 
 Record = dict[str, Any]
 
@@ -27,13 +29,13 @@ class TinySqlTable(Table):
 
     @property
     def records(self) -> list[Record]:
-       return [dict(row) for _, row in self.iterrows()]
+       return table_to_records(self)
 
     def insert_record(self, record: Record) -> None:
-        self.insert_records([record])
+        insert_record(self, record)
 
     def insert_records(self, records: Sequence[Record]) -> None:
-        self.data = insert_rows(self.data, records)
+        insert_records(self, records)
 
     def pull(self):
         self.sqltable.pull()
