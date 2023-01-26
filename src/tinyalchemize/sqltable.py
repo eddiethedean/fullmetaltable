@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any, Dict, Tuple
 import tabulize as tz
 import tinytable as tt
 from tinytim.rows import row_dicts_to_data
@@ -35,7 +35,7 @@ def read_sqltable(name: str, engine) -> SqlTable:
     return SqlTable(name, engine)
 
 
-def read_sqltable_dataframe(name: str,engine) -> tuple[SqlTable, tt.Table]:
+def read_sqltable_dataframe(name: str,engine) -> Tuple[SqlTable, tt.Table]:
     sqltable = SqlTable(name, engine)
     table = sqltable.pull()
     return sqltable, table

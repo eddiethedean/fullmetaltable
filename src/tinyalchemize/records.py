@@ -1,12 +1,12 @@
-from typing import Any, Generator, Iterable
+from typing import Any, Dict, Generator, Iterable, List
 from tinytable import Table
 from tinytim.insert import insert_rows
 
 
-Record = dict[str, Any]
+Record = Dict[str, Any]
 
 
-def table_to_records(table: Table) -> list[Record]:
+def table_to_records(table: Table) -> List[Record]:
     return [dict(row) for _, row in table.iterrows()]
 
 
