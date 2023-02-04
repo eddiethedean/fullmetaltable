@@ -1,8 +1,8 @@
 creds.py
 notebooks/
 
-tinyalchemize.egg-info/
-tinyalchemize/__pycache__/
+fullmetaltable.egg-info/
+fullmetaltable/__pycache__/
 dist/
 build/
 .vscode/

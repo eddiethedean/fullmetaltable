@@ -5,7 +5,7 @@ from tinytim.rows import row_dicts_to_data
 
 from sqlalchemy.engine import Engine
 
-from tinyalchemize.records import table_to_records, insert_record, insert_records
+from fullmetaltable.records import table_to_records, insert_record, insert_records
 
 Record = Dict[str, Any]
 

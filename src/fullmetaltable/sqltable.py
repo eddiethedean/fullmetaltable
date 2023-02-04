@@ -3,7 +3,7 @@ import tabulize as tz
 import tinytable as tt
 from tinytim.rows import row_dicts_to_data
 
-from tinyalchemize.records import table_to_records
+from fullmetaltable.records import table_to_records
 
 Record = Dict[str, Any]
 
